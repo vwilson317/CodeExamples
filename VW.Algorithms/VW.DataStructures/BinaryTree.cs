@@ -12,7 +12,7 @@ namespace VW.DataStructures
 
         public Node Find(int value)
         {
-            if (Root.Value.Equals(value))
+            if (Root != null && Root.Value.Equals(value))
                 return Root;
 
             var matchingNode = CheckNode(Root, value);
