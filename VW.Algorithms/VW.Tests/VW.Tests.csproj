@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuickSortTests.cs" />
     <Compile Include="BinaryTreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VW.Algorithms\VW.Algorithms.csproj">
+      <Project>{7f19e51e-e456-4126-9846-c5ee320f97e3}</Project>
+      <Name>VW.Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VW.DataStructures\VW.DataStructures.csproj">
       <Project>{F3D46E05-3A4F-4BFA-BEA2-B82D22B0CD37}</Project>
       <Name>VW.DataStructures</Name>

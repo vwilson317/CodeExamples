@@ -1,9 +1,14 @@
+using System;
+
 namespace VW.DataStructures
 {
-    public class Node
+    public class Node<T>: IComparable<T>
     {
-        public int Value { get; set; }
-        public Node LeftNode { get; set; }
-        public Node RightNode { get; set; }
+        public T Value { get; set; }
+        public int CompareTo(T other)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
