@@ -13,7 +13,7 @@ using static VW.Algorithms.ArrayExtensionMethods;
 namespace VW.Tests
 {
     [TestFixture]
-    public static class QuickSortTests
+    public static class SortTests
     {
         public static int[] myArray;
 
@@ -36,6 +36,13 @@ namespace VW.Tests
         [Test]        public static void Validate_BubbleSort()        {
             //Act
             myArray.BubbleSort();
+
+            //Assert
+            myArray.Should().BeInAscendingOrder();        }
+
+        [Test]        public static void Validate_InsertionSort()        {
+            //Act
+            myArray.InsertionSort();
 
             //Assert
             myArray.Should().BeInAscendingOrder();        }
