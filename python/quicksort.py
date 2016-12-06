@@ -1,24 +1,26 @@
 def quickSort(array, start, end):
-    if start < end:
-        split = partition(array, start, end)
-        quickSort(array, start, split-1)
-        quickSort(array, split+1, end)
+    if(start < end):
+        partitionIndex = partition(array, start, end)
+        quickSort(array, partitionIndex + 1, end) 
+        quickSort(array,  start, partitionIndex - 1) 
 
-def partition(array, start, end):
-    pivot = array[end]
-    bottom = start - 1
-    top = end
+def partition(array, partitionIndex, end):
+    endVal = array[end]
 
-    while not bottom == top:
-        if(array[top] > pivot):
-            array[top] = array[bottom]
+    for index, currentVal in enumerate(array):
+        partitionVal = array[partitionIndex]
+        
+        if index >= partitionIndex:
+            if(currentVal < endVal):
+                array[partitionIndex] = currentVal
+                array[index] = partitionVal
+                partitionIndex += 1
+        
 
-    while not top == bottom:
-        if(array[top] < pivot):
-            array[bottom] = array[top]
-
-    array[top] = pivot
-    return pivot
+    array[end] = array[partitionIndex]
+    array[partitionIndex] = endVal
+    return partitionIndex
+    
 
 if __name__=="__main__":  
     myArray = [33, 5, 83, 73, 101, 10, 2]
