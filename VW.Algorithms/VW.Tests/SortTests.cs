@@ -15,36 +15,36 @@ namespace VW.Tests
     [TestFixture]
     public static class SortTests
     {
-        public static int[] myArray;
+        public static int[] MyArray;
 
         [SetUp]
         public static void Setup()
         {
-            myArray = new[] { 4, 1, 9, 2093, 4850, 30, 17, 101, 58 };
+            MyArray = new[] { 4, 1, 9, 2093, 4850, 30, 17, 101, 58 };
         }
 
         [Test]
         public static void Validate_Quicksort()
         {
             //Act
-            myArray.QuickSort();
+            MyArray.QuickSort();
 
             //Assert
-            myArray.Should().BeInAscendingOrder();
+            MyArray.Should().BeInAscendingOrder();
         }
 
         [Test]        public static void Validate_BubbleSort()        {
             //Act
-            myArray.BubbleSort();
+            MyArray.BubbleSort();
 
             //Assert
-            myArray.Should().BeInAscendingOrder();        }
+            MyArray.Should().BeInAscendingOrder();        }
 
         [Test]        public static void Validate_InsertionSort()        {
             //Act
-            myArray.InsertionSort();
+            MyArray.InsertionSort();
 
             //Assert
-            myArray.Should().BeInAscendingOrder();        }
+            MyArray.Should().BeInAscendingOrder();        }
     }
 }
