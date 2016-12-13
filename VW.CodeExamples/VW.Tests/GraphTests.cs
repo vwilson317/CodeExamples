@@ -8,10 +8,10 @@ using VW.DataStructures;
 namespace VW.Tests
 {
     [TestFixture]
-    public  class GraphTests
+    public class GraphTests
     {
         public Graph<int> MyGraph;
-            
+
         [SetUp]
         public void Setup()
         {
@@ -40,14 +40,30 @@ namespace VW.Tests
         }
 
         [Test]
-        public  void Validate_BreadfirstTraversal()
+        public void Validate_BreadfirstTraversal()
         {
             //Act
             var actualTraversalResults = MyGraph.Vertices.First().TraverseBreadthFirst();
 
             //Assert
-            var expectedTraversalResults = new[] {4, 0, 5, 1, 7, 10, 8, 6};
+            var expectedTraversalResults = new[] { 4, 0, 5, 1, 7, 10, 8, 6 };
             actualTraversalResults.Should().Equal(expectedTraversalResults);
+        }
+
+        [Test]
+        public void Validate_DepthfirstTraversal()
+        {
+            //Act
+            var actualTraversalResults = MyGraph.Vertices.First().TraverseDepthFirst();
+
+            //Assert
+            var expectedTraversalResults = new[] { 4, 0, 5, 1, 8, 7, 10, 6 };
+            actualTraversalResults.Should().Equal(expectedTraversalResults);
+        }
+
+        private void SetupDepthFirstGraph()
+        {
+
         }
     }
 }
