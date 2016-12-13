@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using VW.Algorithms;
-using VW.DataStructures;
-using static VW.Algorithms.ArrayExtensionMethods;
 
 namespace VW.Tests
 {
@@ -33,18 +25,24 @@ namespace VW.Tests
             MyArray.Should().BeInAscendingOrder();
         }
 
-        [Test]        public static void Validate_BubbleSort()        {
+        [Test]
+        public static void Validate_BubbleSort()
+        {
             //Act
             MyArray.BubbleSort();
 
             //Assert
-            MyArray.Should().BeInAscendingOrder();        }
+            MyArray.Should().BeInAscendingOrder();
+        }
 
-        [Test]        public static void Validate_InsertionSort()        {
+        [Test]
+        public static void Validate_InsertionSort()
+        {
             //Act
             MyArray.InsertionSort();
 
             //Assert
-            MyArray.Should().BeInAscendingOrder();        }
+            MyArray.Should().BeInAscendingOrder();
+        }
     }
 }

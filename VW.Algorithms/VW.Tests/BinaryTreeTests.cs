@@ -27,10 +27,7 @@ namespace VW.Tests
         public void Find_Root_By_Value(int arrangedValue)
         {
             //Arrange
-            Tree.Root = new BinaryTreeNode<int>
-            {
-                Value = arrangedValue
-            };
+            Tree.Root = new BinaryTreeNode<int>(arrangedValue);
 
             //Act
             var result = Tree.Find(arrangedValue);
@@ -54,10 +51,7 @@ namespace VW.Tests
         public void Find_Returns_Null_When_Value_Not_Contained_In_Tree(int arrangedValue)
         {
             //Arrange
-            Tree.Root = new BinaryTreeNode<int>
-            {
-                Value = 1
-            };
+            Tree.Root = new BinaryTreeNode<int>(1);
 
             //Act
             var result = Tree.Find(arrangedValue);
@@ -72,11 +66,8 @@ namespace VW.Tests
         public void Find_Returns_Right_Child_Node(int arrangedValue)
         {
             //Arrange
-            Tree.Root = new BinaryTreeNode<int>
-            {
-                Value = 1,
-                RightNode = new BinaryTreeNode<int> { Value = arrangedValue}
-            };
+            Tree.Root = new BinaryTreeNode<int>(1);
+            Tree.Root.RightNode = new BinaryTreeNode<int>(arrangedValue);
 
             //Act
             var result = Tree.Find(arrangedValue);
@@ -93,13 +84,9 @@ namespace VW.Tests
         {
             var hashTable = new Hashtable();
 
-
             //Arrange
-            Tree.Root = new BinaryTreeNode<int>
-            {
-                Value = 1,
-                LeftNode = new BinaryTreeNode<int> { Value = arrangedValue }
-            };
+            Tree.Root = new BinaryTreeNode<int>(1);
+            Tree.Root.RightNode = new BinaryTreeNode<int>(arrangedValue);
 
             //Act
             var result = Tree.Find(arrangedValue);
@@ -120,18 +107,18 @@ namespace VW.Tests
         public void Find_Returns_Node_Contained_In_Dynamtically_Genrated_Tree(int treeNodeCount, int foundNodeValue)
         {
             //Arrange
-            Tree.Root = new BinaryTreeNode<int> { Value = 0};
+            Tree.Root = new BinaryTreeNode<int>(0);
                         
             for (var i = 1; i < treeNodeCount; i++)
             {
-                var currentNode = new BinaryTreeNode<int> { Value = i };
+                var currentNode = new BinaryTreeNode<int>(i);
                 if (currentNode.LeftNode == null && i < treeNodeCount)
                 {
-                    currentNode.LeftNode = new BinaryTreeNode<int> { Value = i++};
+                    currentNode.LeftNode = new BinaryTreeNode<int>(i++);
                 }
                 if (currentNode.RightNode == null && i < treeNodeCount)
                 {
-                    currentNode.RightNode = new BinaryTreeNode<int> { Value = i++};
+                    currentNode.RightNode = new BinaryTreeNode<int>(i++);
                 }
             }
         }
