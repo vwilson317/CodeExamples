@@ -11,7 +11,7 @@ namespace VW.Algorithms
             return null;
         }
 
-        public static GraphNode<int> FindDeepthFirst(this Graph<int> graph, int searchVal)
+        public static GraphNode<int> FindDepthFirst(this Graph<int> graph, int searchVal)
         {
             return null;
         }

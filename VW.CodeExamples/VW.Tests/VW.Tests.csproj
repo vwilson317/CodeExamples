@@ -53,6 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GraphTests.cs" />
+    <Compile Include="SumPairTests.cs" />
+    <Compile Include="LeastDisruptiveTests.cs" />
+    <Compile Include="LargestRectangleTests.cs" />
+    <Compile Include="PowerSetTests.cs" />
     <Compile Include="SortTests.cs" />
     <Compile Include="BinaryTreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
