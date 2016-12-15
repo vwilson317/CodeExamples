@@ -70,5 +70,37 @@ namespace VW.Algorithms
                 }
             }
         }
+
+        /// <summary>
+        /// Google interview question 12/14/2016
+        /// Important note: Use a dictionary to store visted node by using the orginal as the key and copy as the value
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static GraphNode<int> Copy(this GraphNode<int> node)
+        {
+            var visitedDict =  new Dictionary<GraphNode<int>, GraphNode<int>>();
+            var result = DoCopy(node, visitedDict);
+            return result;
+        }
+
+        private static GraphNode<int> DoCopy(GraphNode<int> nodeOrg, Dictionary<GraphNode<int>, GraphNode<int>> visitedNodes)
+        {
+            var nodeCopy = new GraphNode<int>(nodeOrg.Value);
+            visitedNodes.Add(nodeOrg, nodeCopy);
+            foreach (var currentNode in nodeOrg.AdjacentNodes)
+            {
+                if (!visitedNodes.ContainsKey(currentNode))
+                {
+                    nodeCopy.AdjacentNodes.Add(DoCopy(currentNode, visitedNodes));
+                }
+                else
+                {
+                    nodeCopy.AdjacentNodes.Add(visitedNodes[currentNode]);
+                }
+            }
+
+            return nodeCopy;
+        } 
     }
 }

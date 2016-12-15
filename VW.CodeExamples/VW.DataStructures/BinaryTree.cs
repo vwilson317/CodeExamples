@@ -1,4 +1,6 @@
-﻿namespace VW.DataStructures
+﻿using System.Collections.Generic;
+
+namespace VW.DataStructures
 {
     public class BinaryTree<T>
     {
@@ -33,6 +35,39 @@
                 return node;
             }
             return null;
+        }
+
+        public List<BinaryTreeNode<T>> DeleteNodes(HashSet<BinaryTreeNode<T>> nodesToDelete)
+        {
+            var rootNodes = new List<BinaryTreeNode<T>>();
+            DoDelete(Root, nodesToDelete, rootNodes);
+
+            return rootNodes;
+        }
+
+        private void DoDelete(BinaryTreeNode<T> currentNode, HashSet<BinaryTreeNode<T>> nodesToDelete,
+            List<BinaryTreeNode<T>> rootNodes)
+        {
+            if (nodesToDelete.Contains(currentNode))
+            {
+                if (currentNode.LeftNode != null)
+                {
+                    rootNodes.Add(currentNode.LeftNode);
+                }
+                if (currentNode.RightNode != null)
+                {
+                    rootNodes.Add(currentNode.RightNode);
+                }
+            }
+
+            if (currentNode.LeftNode != null)
+            {
+                DoDelete(currentNode.LeftNode, nodesToDelete, rootNodes);
+            }
+            if (currentNode.RightNode != null)
+            {
+                DoDelete(currentNode.RightNode, nodesToDelete, rootNodes);
+            }
         }
     }
 }

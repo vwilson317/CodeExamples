@@ -44,5 +44,15 @@ namespace VW.Tests
             //Assert
             MyArray.Should().BeInAscendingOrder();
         }
+
+        [Test]
+        public static void Get_Odd_Number_Occurrances()
+        {
+            //Act
+            var result = new []{1,2,3,4,4,5,9,9,9,3}.FindOffNumberOfOccurances();
+
+            //Assert
+            result.Should().Equal(new[] {1, 2, 5, 9});
+        }
     }
 }

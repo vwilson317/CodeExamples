@@ -20,7 +20,6 @@ namespace VW.Algorithms
 
         private static void InsertionSortSwap(int[] array, int sortedIndexDivider)
         {
-
             for (int i = 0; i < sortedIndexDivider; i++)
             {
                 if (i == sortedIndexDivider)
@@ -143,9 +142,10 @@ namespace VW.Algorithms
         {
             var pairExists = false;
             var dict = new Dictionary<int, int>();
-            foreach (var currentItem in array)
+
+            for(var i = 0; i < array.Length; i++)
             {
-                pairExists = CheckSum(currentItem, sumValue, dict);
+                pairExists = CheckSum(array[i], sumValue, dict);
                 if (pairExists)
                 {
                     break;
@@ -170,5 +170,32 @@ namespace VW.Algorithms
 
             return false;
         }
+
+        public static int facotral(int num)
+        {
+            if (num > 1)
+                return num*facotral(num - 1);
+
+            else
+                return num;
+        }
+
+        public static HashSet<int> FindOffNumberOfOccurances(this int[] array)
+        {
+            var hashSet = new HashSet<int>();
+            foreach (var currentItem in array)
+            {
+                if (hashSet.Contains(currentItem))
+                {
+                    hashSet.Remove(currentItem);
+                }
+                else
+                {
+                    hashSet.Add(currentItem);
+                }
+            }
+
+            return hashSet;
+        } 
     }
 }

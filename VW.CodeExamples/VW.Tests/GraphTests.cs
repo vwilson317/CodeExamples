@@ -61,9 +61,16 @@ namespace VW.Tests
             actualTraversalResults.Should().Equal(expectedTraversalResults);
         }
 
-        private void SetupDepthFirstGraph()
-        {
 
+        [Test]
+        public void Test()
+        {
+            //Act
+            var graphNode = MyGraph.Vertices.First();
+            var copiedGraphNode = graphNode.Copy();
+
+            //Assert
+            MyGraph.Should().Equals(graphNode);
         }
     }
 }

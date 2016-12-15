@@ -4,8 +4,6 @@ namespace VW.DataStructures
 {
     public class GraphNode<T>: Node<T>
     {
-        public T Value { get { return base.Value; } }
-
         public List<GraphNode<T>> AdjacentNodes = new List<GraphNode<T>>();
         public Dictionary<GraphNode<T>, int> Edges = new Dictionary<GraphNode<T>, int>();
 
