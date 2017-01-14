@@ -41,7 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayExtensionMethods.cs" />
+    <Compile Include="GraphExtestionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VW.DataStructures\VW.DataStructures.csproj">
+      <Project>{F3D46E05-3A4F-4BFA-BEA2-B82D22B0CD37}</Project>
+      <Name>VW.DataStructures</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

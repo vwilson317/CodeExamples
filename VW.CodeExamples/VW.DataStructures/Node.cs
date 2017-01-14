@@ -10,5 +10,14 @@ namespace VW.DataStructures
             throw new NotImplementedException();
         }
 
+        public Node(T value)
+        {
+            Value = value;
+        }
+
+        public Node()
+        {
+            
+        }
     }
 }

@@ -5,5 +5,8 @@ namespace VW.DataStructures
         public BinaryTreeNode<TNode> LeftNode { get; set; }
         public BinaryTreeNode<TNode> RightNode { get; set; }
 
+        public BinaryTreeNode(TNode value) : base(value)
+        {
+        }
     }
 }

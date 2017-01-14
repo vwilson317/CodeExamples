@@ -20,7 +20,6 @@ namespace VW.Algorithms
 
         private static void InsertionSortSwap(int[] array, int sortedIndexDivider)
         {
-            
             for (int i = 0; i < sortedIndexDivider; i++)
             {
                 if (i == sortedIndexDivider)
@@ -61,7 +60,7 @@ namespace VW.Algorithms
         private static void SwapItems(int[] array, int leftIndex)
         {
             //don't traverse go the full length of the array
-            for (var currentItemIndex = leftIndex; currentItemIndex < array.Length -1; currentItemIndex++)
+            for (var currentItemIndex = leftIndex; currentItemIndex < array.Length - 1; currentItemIndex++)
             {
                 var nextItemIndex = currentItemIndex + 1;
                 var nextItemVal = array[nextItemIndex];
@@ -81,8 +80,8 @@ namespace VW.Algorithms
         /// <returns></returns>
         public static int[] QuickSort(this int[] array)
         {
-            var middleIndex = (int) Math.Round((double) (array.Length/2));
-            QuickSort(array, 0, array.Length -1);
+            var middleIndex = (int)Math.Round((double)(array.Length / 2));
+            QuickSort(array, 0, array.Length - 1);
             return null;
         }
 
@@ -92,7 +91,7 @@ namespace VW.Algorithms
             {
                 var splitIndex = Partition(array, start, end);
                 QuickSort(array, splitIndex + 1, end);
-                QuickSort(array, start, splitIndex -1);
+                QuickSort(array, start, splitIndex - 1);
             }
         }
 
@@ -121,5 +120,82 @@ namespace VW.Algorithms
 
             return partitionIndex;
         }
+
+        /// <summary>
+        /// Disruption is equal to the sum of of elements at array[i] - replaceArray[i]
+        /// Can't change the order of elements in the replacementArray
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="replaceArray"></param>
+        public static void ReplaceWithLeastDisruption(this int[] array, int[] replaceArray)
+        {
+
+        }
+
+        /// <summary>
+        /// Worst case run time o(n)
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="sumValue"></param>
+        /// <returns></returns>
+        public static bool DoesSumPairExists(this int[] array, int sumValue)
+        {
+            var pairExists = false;
+            var dict = new Dictionary<int, int>();
+
+            for(var i = 0; i < array.Length; i++)
+            {
+                pairExists = CheckSum(array[i], sumValue, dict);
+                if (pairExists)
+                {
+                    break;
+                }
+            }
+            return pairExists;
+        }
+
+        public static bool CheckSum(int currentVal, int sumValue, Dictionary<int, int> theYinToYangLookup)
+        {
+            if (currentVal > sumValue)
+                return false;
+
+
+            if (theYinToYangLookup.ContainsKey(currentVal))
+            {
+                return true;
+            }
+            var difference = Math.Abs(currentVal - sumValue);
+            if(!theYinToYangLookup.ContainsKey(difference))
+                theYinToYangLookup.Add(difference, currentVal);
+
+            return false;
+        }
+
+        public static int facotral(int num)
+        {
+            if (num > 1)
+                return num*facotral(num - 1);
+
+            else
+                return num;
+        }
+
+        public static HashSet<int> FindOffNumberOfOccurances(this int[] array)
+        {
+            var hashSet = new HashSet<int>();
+            foreach (var currentItem in array)
+            {
+                if (hashSet.Contains(currentItem))
+                {
+                    hashSet.Remove(currentItem);
+                }
+                else
+                {
+                    hashSet.Add(currentItem);
+                }
+            }
+
+            return hashSet;
+        } 
     }
 }
