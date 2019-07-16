@@ -73,7 +73,7 @@ namespace VW.Algorithms
 
         /// <summary>
         /// Google interview question 12/14/2016
-        /// Important note: Use a dictionary to store visted node by using the orginal as the key and copy as the value
+        /// Important note: Use a dictionary to store visited node by using the original as the key and copy as the value
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
